@@ -1,0 +1,15 @@
+class Person:
+    def __init__(self, name, surname):
+        self.__name = name
+        self.__surname = surname
+    def getNAME(self):
+        return self.__name
+        return self.__surname
+
+    def setNANE(self, name, surname):
+        self.__name = name
+        self.__surname = surname
+    def output(self):
+        print(f"name:{self.__name}\nsurname:{self.__surname}")
+user1 = Person("MrProper", "Cleaner")
+user1.output()
