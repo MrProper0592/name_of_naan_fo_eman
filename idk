@@ -1,0 +1,19 @@
+class Person:
+    def __init__(self, name, surname):
+        self.__name = name
+        self.__surname = surname
+    def getNAME(self):
+        return self.__name
+
+    def setNANE(self, name):
+        self.__name = name
+    def setSUrname(self,surname):
+        self.__surname = surname
+    def getSURNAME(self):
+        return self.__surname
+    def output(self):
+        print(f"name:{self.__name}\nsurname:{self.__surname}")
+user1 = Person("MrProper", "Cleaner")
+user1.output()
+user1.setNANE("neproper")
+user1.output()
