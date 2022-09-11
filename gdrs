@@ -1,0 +1,35 @@
+class Student:
+    def __init__(self, name, surname, group_name, age):
+        self.__name = name
+        self.__surname = surname
+        self.__age = age
+        self.__group_name = group_name
+
+    def getNAME(self):
+        return self.__name
+
+    def getSURNAME(self):
+        return self.__surname
+
+    def getAGE(self):
+        return self.__age
+
+    def getGROUP_NAME(self):
+        return self.__group_name
+
+    def setNANE(self,name):
+        self.__name = name
+
+    def setSURNANE(self, surname):
+        self.__surname = surname
+
+    def setAGE(self, age):
+        self.__age = age
+
+    def setGROUP_NAME(self, group_name):
+        self.__group_name = group_name
+
+    def output(self):
+        print(f"name:{self.__name}\nsurname:{self.__surname}\nage:{self.__age}\ngroup name:{self.__group_name}")
+user1 = Student("MrProper", "Cleaner", "nshnn31d-101", 16)
+user1.output()
