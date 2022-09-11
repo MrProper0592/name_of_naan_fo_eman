@@ -24,8 +24,10 @@ class Student:
 g1 = Group(input("group name:"))
 g1.addS(Student("MrProper", "Cleaner", 93, [3, 5, 11, 3, 5, 12], "Chernihiv"),
         Student("MrProper", "Cleaner", 93, [3, 5, 11, 3, 5, 12], "Chernihiv"),
-        Student("chel", "chuvachok", 15, [12, 12, 11, 10, 11, 12], "Lviv") 
-        
+        Student("chel", "chuvachok", 15, [12, 12, 11, 10, 11, 12], "Lviv"),
+        Student("pupochok", "shivotik", 42,[12, 12, 12, 12, 12, 13], "Sevastopol"),
+        Student("Bilok", "shuivchik", -100,[15, 12, 12, 12, 12, 13], "Odessa")
+
 )
 
 print("\n\n\n\n\n\n\n\n\n\n\n\n")
