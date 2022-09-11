@@ -1,0 +1,28 @@
+class Group:
+
+    def __init__(self, group_name):
+        self.group_name = group_name
+        self.student = []
+
+    def addS(self, student):
+        self.student.append(student)
+
+    def sl(self):
+        for student in self.student:
+            print("\ngroup name:", self.group_name, "\nname:", student.name, "\nsurname:", student.surname, "\nage:", student.age, "\nmark:", student.marks, "\nlocation:", student.location)
+
+class Student:
+
+    def __init__(self, name,surname , age, marks, location):
+        self.name = name
+        self.surname = surname
+        self.age = age
+        self.marks = sum(marks) / len(marks)
+        self.location = location
+
+g1 = Group(input("group name:"))
+g1.addS(Student("MrProper", "Cleaner", 93, [3, 5, 11, 3, 5, 12], "Chernihiv"))
+g1.addS(Student("Mrkakashka", "anti Cleaner", 39, [5, 12, 11, 8, 10, 12], "Kiev"))
+g1.addS(Student("chel", "chuvachok", 15, [7, 12, 11, 10, 11, 12], "Lviv"))
+print("\n\n\n\n\n\n\n\n\n\n\n\n")
+g1.sl()
