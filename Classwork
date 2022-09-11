@@ -4,8 +4,9 @@ class Group:
         self.group_name = group_name
         self.student = []
 
-    def addS(self, student):
-        self.student.append(student)
+    def addS(self, *kwargs):
+        for student in kwargs:
+            self.student.append(student)
 
     def sl(self):
         for student in self.student:
@@ -21,8 +22,11 @@ class Student:
         self.location = location
 
 g1 = Group(input("group name:"))
-g1.addS(Student("MrProper", "Cleaner", 93, [3, 5, 11, 3, 5, 12], "Chernihiv"))
-g1.addS(Student("Mrkakashka", "anti Cleaner", 39, [5, 12, 11, 8, 10, 12], "Kiev"))
-g1.addS(Student("chel", "chuvachok", 15, [7, 12, 11, 10, 11, 12], "Lviv"))
+g1.addS(Student("MrProper", "Cleaner", 93, [3, 5, 11, 3, 5, 12], "Chernihiv"),
+        Student("MrProper", "Cleaner", 93, [3, 5, 11, 3, 5, 12], "Chernihiv"),
+        Student("chel", "chuvachok", 15, [12, 12, 11, 10, 11, 12], "Lviv") 
+        
+)
+
 print("\n\n\n\n\n\n\n\n\n\n\n\n")
 g1.sl()
