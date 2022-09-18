@@ -1,0 +1,108 @@
+import logging
+logging.basicConfig(level=logging.INFO,
+                    filename="logs.log",
+                    filemode="w")
+mark = 0
+name = input("your name:")
+logging.info(f"name: {name}")
+number1 = int(input("2+2="))
+
+if number1 == 4:
+    mark = +1
+    logging.info("+1")
+    print("+1")
+
+else:
+    logging.info("-1")
+    print("-1")
+
+logging.info(f"name: {name} answer1: 2+2={number1}")
+number2 = int(input("2/2="))
+
+if number2 == 1:
+    mark=+1
+    logging.info("+1")
+    print("+1")
+
+else:
+    logging.info("-1")
+    print("-1")
+
+logging.info(f"name: {name} answer2: 2/2={number2}")
+number3 = int(input("2-2="))
+
+if number3 == 0:
+    mark=+1
+    logging.info("+1")
+    print("+1")
+
+else:
+    logging.info("-1")
+    print("-1")
+
+logging.info(f"name: {name} answer3: 2-2={number3}")
+number4 = int(input("2*2="))
+
+if number4 == 4:
+    mark=+1
+    logging.info("+1")
+    print("+1")
+
+else:
+    logging.info("-1")
+    print("-1")
+
+logging.info(f"name: {name} answer4: 2*2={number4}")
+number5 = int(input("(67248723648.0000000042424*8624575848.098438934956abc-34558926598758746)*0="))
+
+if number5 == 0:
+    mark=+1
+    logging.info("+1")
+    print("+1")
+
+else:
+    logging.info("-1")
+    print("-1")
+
+logging.info(f"name: {name} answer5: (67248723648.0000000042424*8624575848.098438934956abc-34558926598758746)*0={number5}")
+
+print(f"your mark is: {mark}/5")
+logging.debug("\tDEBUG :/")
+logging.info("\tINFO :)")
+logging.warning("\tWARNING >:(")
+logging.error("\terror>:<")
+logging.critical("\tcritical error :D")
+
+import urllib.request
+opener = urllib.request.build_opener()
+response = opener.open("https://httpbin.org/get")
+print(response.reed())
+import requests
+while True:
+    response = requests.get("https://coinmarketcap.com/")
+    response_text = response.text
+    response_parse = response_text.split("<span>")
+    for parse_elem_1 in response_parse:
+        if parse_elem_1.startswith("$"):
+            for parse_elem_2 in parse_elem_1.split("</span>"):
+                if parse_elem_2.startswith("$") and parse_elem_2[1].isdigit():
+                    print(parse_elem_2)
+
+from bs4 import BeautifulSoup
+
+response = requests.get("https://coinmarketcap.com/")
+if response.status_code == 200:
+    print("status code : 200:D")
+    soup = BeautifulSoup(
+        response.text,
+        features="html.parser"
+    )
+    soup_list = soup.find_all("a", {
+        "href": "/currencies/bitcoin/markets/"
+    })
+    for element in soup_list:
+        print(element)
+        res = soup_list[0].find("span")
+        print(res.text)
+elif response.status_code == 404:
+    print("status code : 404:/")
