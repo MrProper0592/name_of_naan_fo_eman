@@ -1,0 +1,33 @@
+import time
+while True:
+    try:
+        n1 = int(input("число1:"))
+    except ValueError:
+        print("\033[31m ", "СЛУХАЙ МОЖЕ ТИ ДУРНЕ?!")
+    try:
+        n2 = int(input("число3:"))
+    except ValueError:
+        print("\033[31m ", "СЛУХАЙ МОЖЕ ТИ ДУРНЕ?!")
+    try:
+        u = input("дія( +, -, /, *;):")
+    except ValueError:
+        print("\033[31m ", "СЛУХАЙ МОЖЕ ТИ ДУРНЕ?!")
+    if u == '+':
+        print(n1 + n2)
+    elif u == '-':
+        print(n1 - n2)
+    elif u == '*':
+        print(n1 * n2)
+    elif u == '/':
+        if u == '/' and n2 <= 0:
+            print("\033[31m ", "СЛУХАЙ МОЖЕ ТИ ДУРНЕ?!")
+        print(n1 / n2)
+    else:
+        print("\033[31m ", "СЛУХАЙ МОЖЕ ТИ ДУРНЕ?!")
+    yrn = input("ще раз попрацюємо?(y/n)")
+    if yrn == 'y':
+        time.sleep(3)
+    elif yrn == 'n':
+        break
+    else:
+        print("\033[31m ", "СЛУХАЙ МОЖЕ ТИ ДУРНЕ?!")
