@@ -1,0 +1,110 @@
+import sqlite3
+import random
+import tkinter as tk
+r = random
+def p(pr):
+    print(pr)
+con = sqlite3.connect('db.sl3', 5)
+cur = con.cursor()
+while True:
+    try:
+        a = int(input("mode(1,2,3,4,5,6)"))
+        if a == 1:
+            while True:
+                p('mode = add item')
+                n = input("name = ")
+                s = input("made in = ")
+                try:
+                    price = int(input("price($) = "))
+                    amo = int(input("amount = "))
+                    break
+                except ValueError:
+                    t = f"СЛУХАЙ МОЖЕ ТИ ДУРНЕ?!"
+                    p("\033[31m {}".format(t))
+            cur.execute(f"INSERT INTO Products  (code, price, name, made, amount )  VALUES ('code = {r.randint(1000000000, 9999999999)}','price = {price}','Name = {n}', 'made in = {s}', 'amount = {amo}');")
+            con.commit()
+            cur.execute('SELECT rowid, code, price, name, made, amount FROM Products;')
+            con.commit()
+            res = cur.fetchall()
+            p(res)
+        elif a == 2:
+            p('mode = delete item from shop')
+            try:
+                u = int(input("id = "))
+            except ValueError:
+                t = f"СЛУХАЙ МОЖЕ ТИ ДУРНЕ?!"
+                p("\033[31m {}".format(t))
+            cur.execute(f"DELETE FROM Products WHERE rowid = {u}")
+            print(f"{u} = deleted")
+        elif a == 3:
+            p('mode = find one item')
+            try:
+                na = int(input(" id = "))
+            except ValueError:
+                t = f"СЛУХАЙ МОЖЕ ТИ ДУРНЕ?!"
+                p("\033[31m {}".format(t))
+            cur.execute(f"SELECT rowid, code, price, name, made, amount FROM Products WHERE rowid = {na};")
+            con.commit()
+            res = cur.fetchall()
+            p(res)
+        elif a == 4:
+            p('mode = all shop')
+            cur.execute('SELECT rowid, code, price, name, made, amount FROM Products;')
+            con.commit()
+            res = cur.fetchall()
+            p(res)
+        elif a == 5:
+            p('mode = edit item')
+            while True:
+                try:
+                    id = int(input("id = "))
+                    break
+                except ValueError:
+                    t = f"СЛУХАЙ МОЖЕ ТИ ДУРНЕ?!"
+                    p("\033[31m {}".format(t))
+            while True:
+                value = input("name or price or made or amount? ")
+                if value == "name":
+                    p("ok")
+                    nv = input("new value:")
+                    nm = "name"
+                    break
+                elif value == "price":
+                    p('ok')
+                    try:
+                        nv = int(input("new value:"))
+                        nm = "price"
+                        break
+                    except ValueError:
+                        t = f"СЛУХАЙ МОЖЕ ТИ ДУРНЕ?!"
+                        p("\033[31m {}".format(t))
+                elif value == 'made':
+                    p('ok')
+                    nv = input("new value:")
+                    nm = "made in"
+                    break
+                elif value == 'amount':
+                    p('ok')
+                    while True:
+                        try:
+                            nv = input("new value:")
+                            nm = "amount"
+                            break
+                        except ValueError:
+                            t = f"СЛУХАЙ МОЖЕ ТИ ДУРНЕ?!"
+                            p("\033[31m {}".format(t))
+                else:
+                    t = f"СЛУХАЙ МОЖЕ ТИ ДУРНЕ?!"
+                    p("\033[31m {}".format(t))
+            cur.execute(f"UPDATE Products SET \"{value}\"=\" {nm} = {nv}\" WHERE rowid={id};")
+        elif a == 6:
+            p('mode = see you later')
+            p("See you soon!")
+            break
+        elif a == 696:
+            t7 = '''bruh'''
+            p(t7)
+    except ValueError:
+        t = f"СЛУХАЙ МОЖЕ ТИ ДУРНЕ?!"
+        p("\033[31m {}".format(t))
+con.close()
